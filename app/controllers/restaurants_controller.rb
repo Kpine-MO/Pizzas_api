@@ -10,6 +10,11 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_restaurant_not_found_err
         render json: find_restaurant
     end
 
+    def destroy
+        find_restaurant.destroy
+        render json: {}, status: :no_content
+    end
+
     private
 
     def find_restaurant
