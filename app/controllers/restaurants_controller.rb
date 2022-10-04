@@ -7,7 +7,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_restaurant_not_found_err
     end
 
     def show
-        render json: find_restaurant
+        render json: find_restaurant, serializer: ShowPizzaSerializer
     end
 
     def destroy
